@@ -29,9 +29,9 @@ callback = function(response) {
 
     response.on('end', function () {
         console.log(res);
-        process.env.RES = str;
     });
     res = str;
+    return str;
 }
 
 client.on('ready', () => {

@@ -2,7 +2,7 @@
   "type": "module",
   "name": "levelsystem-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Discord Bot for my cross platform Levelsystem",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon main.js"
@@ -16,5 +16,13 @@
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "nodemon": "^2.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baumistlustig/Levelsystem-Discord-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Baumistlustig/Levelsystem-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/Baumistlustig/Levelsystem-Discord-Bot#readme"
 }

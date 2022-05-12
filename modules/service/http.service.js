@@ -1,24 +1,14 @@
-import https from 'https';
-import fs from 'fs';
-
-function getOptions(port, host, path) {
+export function getOptions(url, body) {
     return {
-        port: port,
-        host: host,
-        path: path,
+        url: url,
+        form: body,
     };
 }
 
-function callback(response) {
-    let str = '';
+export function callback(err, res, body)  {
+    if (err) {
+        return console.log(err);
+    }
+    console.log(JSON.parse(body));
 
-    //another chunk of data has been received, so append it to `str`
-    response.on('data', function (chunk) {
-        str += chunk;
-    });
-
-    //the whole response has been received, so we just print it out here
-    response.on('end', function () {
-        console.log(str);
-    });
 }

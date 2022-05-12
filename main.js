@@ -1,8 +1,11 @@
 import DiscordJS, { Intents } from 'discord.js';
-import * as http from "http";
+import request from 'request'
 import dotenv from 'dotenv';
 
 dotenv.config()
+
+// Modules
+import { getOptions, callback } from "./modules/service/http.service.js";
 
 const client = new DiscordJS.Client({
     intents: [
@@ -11,28 +14,6 @@ const client = new DiscordJS.Client({
     ],
 });
 
-const http_options = {
-    port: 8090,
-    host: '0.0.0.0',
-    path: '/api/user/baumistlustig'
-};
-
-let callback;
-let res;
-
-callback = function(response) {
-    let str = '';
-
-    response.on('data', function (chunk) {
-        str += chunk;
-    });
-
-    response.on('end', function () {
-        console.log(res);
-    });
-    res = str;
-    return str;
-}
 
 client.on('ready', () => {
     const guildId ='778867901880860692';
@@ -61,12 +42,29 @@ client.on('interactionCreate', async (interaction) => {
 
     if (commandName === 'ping') {
 
-        http.request(http_options, callback).end();
-        interaction.reply(`${process.env.RES}`)
+
     }
 });
 
+let counter = 0;
 
+client.on('messageCreate', async (message) => {
+
+    if (message.author.bot) { return; }
+
+    console.log(message.author)
+
+    request.post(getOptions(
+        'http://localhost:8090/api/message',
+        {
+            author: message.author.username,
+        }
+    ), (err, res, body) => {
+        callback(err, res, body);
+
+        console.log(JSON.parse(body));
+    });
+});
 
 client.login(process.env.TOKEN).then(
     r => console.log(`Bot logged in as ${client.user.tag}`

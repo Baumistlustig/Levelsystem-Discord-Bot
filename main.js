@@ -27,8 +27,8 @@ client.on('ready', () => {
     }
 
     commands?.create({
-        name: 'ping',
-        description: 'replies with pong',
+        name: 'experience',
+        description: 'Shows your own experience',
     });
 });
 
@@ -40,19 +40,25 @@ client.on('interactionCreate', async (interaction) => {
 
     const { commandName, options } = interaction;
 
-    if (commandName === 'ping') {
+    if (commandName === 'experience') {
+        let username = interaction.user.username;
+        request.get(getOptions(
+            `http://localhost:8090/api/user/${username}`,
+            {
+                    author: interaction.user.username,
+                }
+        ), (err, res, body) => {
+            callback(err);
 
-
+            interaction.reply(`${body}`);
+        });
     }
 });
 
-let counter = 0;
 
 client.on('messageCreate', async (message) => {
 
     if (message.author.bot) { return; }
-
-    console.log(message.author)
 
     request.post(getOptions(
         'http://localhost:8090/api/message',
@@ -60,7 +66,7 @@ client.on('messageCreate', async (message) => {
             author: message.author.username,
         }
     ), (err, res, body) => {
-        callback(err, res, body);
+        callback(err);
 
         console.log(JSON.parse(body));
     });

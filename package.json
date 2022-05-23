@@ -1,0 +1,17 @@
+{
+  "name": "levelsystem_discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.7.0",
+    "nodemon": "^2.0.16",
+    "tsc": "^2.0.4"
+  }
+}

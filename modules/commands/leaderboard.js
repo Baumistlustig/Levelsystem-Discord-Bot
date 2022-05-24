@@ -21,7 +21,7 @@ module.exports = {
                     .setDescription('This is the first user in terms of messages')
                     .addField('Username: ', `${response.first.username}`)
                     .addField('Experience: ', `${response.first.experience} Messages`)
-                    .setColor("GOLD")
+                    .setColor('#f1c40f')
                     .setTimestamp();
 
                 const user2 = new MessageEmbed()

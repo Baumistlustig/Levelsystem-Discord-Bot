@@ -8,7 +8,8 @@ module.exports = {
         .setName('link')
         .setDescription('Used to link your discord account to other accounts')
         .addStringOption(option =>
-            option.setName('platform')
+            option
+                .setName('platform')
                 .setDescription('The platform you want to link your account to')
                 .setRequired(true)
                 //.addChoices(['minecraft'])

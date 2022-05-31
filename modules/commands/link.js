@@ -12,7 +12,6 @@ module.exports = {
                 .setName('platform')
                 .setDescription('The platform you want to link your account to')
                 .setRequired(true)
-                //.addChoices(['minecraft'])
         )
         .addStringOption(option =>
         option.setName('username')
@@ -30,6 +29,7 @@ module.exports = {
                 author: interaction.user.username,
                 token: access_token,
                 platform: platform,
+                minecraft: username,
             }
         }, async (err, res, body) => {
             let embed;

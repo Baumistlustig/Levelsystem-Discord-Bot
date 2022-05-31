@@ -34,7 +34,19 @@ module.exports = {
                 return console.log(err);
             }
 
-            body = JSON.parse(body)
+            body = JSON.parse(body);
+
+            if (!body.experience) {
+                const embed = new MessageEmbed()
+                    .setTitle('Error!')
+                    .setDescription(`That user you mentioned is not in our Database!`)
+                    .addField('Get Started:', 'If you want to earn experience, write a message!')
+                    .setColor('RED')
+                    .setTimestamp();
+                await interaction.reply({embeds: [embed]});
+
+                return;
+            }
 
             const embed = new MessageEmbed()
                 .setTitle('Your Experience Points')

@@ -41,7 +41,7 @@ module.exports = {
                     .setTimestamp();
 
                 const user4 = new MessageEmbed()
-                    .setTitle('**#3** User 🥉')
+                    .setTitle('**#4** User 🥉')
                     .setDescription('This is the third user in terms of messages')
                     .addField('Username: ', `${response.fourth.username}`)
                     .addField('Experience: ', `${response.fourth.experience} Messages`)
@@ -49,7 +49,7 @@ module.exports = {
                     .setTimestamp();
 
                 const user5 = new MessageEmbed()
-                    .setTitle('**#3** User 🥉')
+                    .setTitle('**#5** User 🥉')
                     .setDescription('This is the third user in terms of messages')
                     .addField('Username: ', `${response.fifth.username}`)
                     .addField('Experience: ', `${response.fifth.experience} Messages`)

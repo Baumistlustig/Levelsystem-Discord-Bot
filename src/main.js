@@ -53,4 +53,6 @@ for (const file of eventFiles) {
 
 
 // ----------- LOGIN ----------- //
-client.login(token).then(r => console.log(`Logged in as ${client.user.username + client.user.tag}`));
+client.login(token, function (){
+    console.log(`Logged in as ${client.user.username + client.user.tag}`)
+});

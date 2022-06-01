@@ -31,7 +31,7 @@ module.exports = {
                 platform: platform,
                 minecraft: username,
             }
-        }, async (err, res, body) => {
+        }, async (err) => {
             let embed;
             if (err) {
                 console.log(err);
